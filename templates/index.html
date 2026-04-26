@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solaze AI Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Solaze AI Text Summarizer</h2>
+    <p style="color: grey; margin-top:-10px;">
+        Turn long text into concise summaries with Solaze AI.
+    </p>
+      <form method="post">
+        <textarea name="text" rows="10" placeholder="Paste text here...">{{ user_text }}</textarea>
+        <button type="submit">Summarize</button>
+    </form>
+    
+    {% if user_text %}
+        <h3>Your Text:</h3>
+        <div class="box">
+            {{ user_text }}
+        </div>
+    {% endif %}
+
+    <h3>Summary:</h3>
+
+    <div id="summary-box" class="box">
+        {% if summary %}
+            <ul>
+                {% for point in summary %}
+                    <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty-state">Your summary will appear here.</p>
+        {% endif %}
+    </div>
+
+    {% if summary %}
+        <button id="copy-btn" onclick="copySummary()">Copy Summary</button>
+    {% endif %} 
+</div>
+
+    <script>
+    function copySummary() {
+        const summaryText = document.getElementById("summary-box").innerText;
+        navigator.clipboard.writeText(summaryText);
+
+        const btn = document.getElementById("copy-btn");
+        btn.innerText = "Copied!";
+        
+        setTimeout(() => {
+            btn.innerText = "Copy Summary";
+        }, 2000);
+    }
+    </script>
+    <script>
+    document.querySelector("form").addEventListener("submit", function() {
+        const btn = document.getElementById("submit-btn");
+        btn.disabled = true;
+        btn.innerText = "Summarizing...";
+    });
+    </script>
+<footer>
+    Built by Ezekiel — AI Automation Developer in training
+</footer>
+</body>
+</html>
