@@ -17,7 +17,15 @@
     </p>
       <form method="post">
         <textarea name="text" rows="10" placeholder="Paste text here...">{{ user_text }}</textarea>
-        <button type="submit">Summarize</button>
+        <div class="selector-group">
+            <label for="summary_type">Summary Type:</label>
+            <select name="summary_type" id="summary_type">
+                <option value="short" {% if summary_type == 'short' %}selected{% endif %}>Short Summary (3 bullet points)</option>
+                <option value="detailed" {% if summary_type == 'detailed' %}selected{% endif %}>Detailed Summary (5 bullet points)</option>
+                <option value="actions" {% if summary_type == 'actions' %}selected{% endif %}>Action Points (5 points)</option>
+            </select>
+        </div>
+        <button type="submit" id="submit-btn">Summarize</button>
     </form>
     
     {% if user_text %}
