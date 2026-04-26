@@ -20,12 +20,15 @@ body {
 }
 
 h2 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-top: 25px;
 }
 
 textarea {
     width: 100%;
-    max-width: 100%;
     padding: 12px;
     font-size: 16px;
     border-radius: 8px;
@@ -50,13 +53,6 @@ button:hover {
     background: #4338ca;
 }
 
-.box {
-    background: #f4f4f4;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
 .selector-group {
     margin: 15px 0;
 }
@@ -71,8 +67,21 @@ button:hover {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
-<<<<<<< HEAD
     border: 1px solid #ccc;
+}
+
+.box {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border: 1px solid #eee;
+}
+
+.empty-state {
+    color: #777;
+    margin: 0;
 }
 
 footer {
@@ -82,14 +91,9 @@ footer {
     color: #777;
 }
 
-.empty-state {
-    color: #777;
-    margin: 0;
-}
-
 @media (max-width: 600px) {
     body {
-        padding: 15px;
+        padding: 10px;
     }
 
     .container {
@@ -100,6 +104,3 @@ footer {
         font-size: 20px;
     }
 }
-=======
-}
->>>>>>> bde42b4cccb5b6efffc1f86727d83f44131dbb4d
